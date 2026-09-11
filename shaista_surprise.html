@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Shaista ❤️</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;overflow:hidden;background:radial-gradient(circle at top,#35104d,#12051d 65%);color:#fff;font-family:system-ui,sans-serif;display:flex;align-items:center;justify-content:center}
+.card{text-align:center;width:min(92%,520px);padding:30px 22px;position:relative;z-index:2}
+h1{font-size:clamp(38px,11vw,70px);margin:0 0 8px;animation:pulse 1.6s infinite}
+h2{font-size:clamp(24px,7vw,38px);margin:5px 0 18px}
+p{font-size:18px;line-height:1.6;margin:10px 0}.shayari{font-size:20px;margin:24px auto;padding:20px;border:1px solid #ffffff33;border-radius:22px;background:#ffffff0d;backdrop-filter:blur(8px)}
+button{border:0;border-radius:999px;padding:13px 24px;font-size:16px;background:#fff;color:#6b164d;font-weight:700;cursor:pointer}
+.heart{position:fixed;font-size:24px;animation:float 5s linear forwards;pointer-events:none;z-index:1}
+@keyframes pulse{50%{transform:scale(1.13)}}@keyframes float{from{transform:translateY(110vh) rotate(0);opacity:0}10%{opacity:1}to{transform:translateY(-15vh) rotate(360deg);opacity:0}}
+.hidden{display:none}.reveal{animation:reveal .9s ease}@keyframes reveal{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div id="main">
+    <h1>❤️</h1>
+    <h2>Shaista ✨</h2>
+    <p>Ek chhota sa QR… aur ek bahut bada surprise.</p>
+    <button onclick="reveal()">Open your surprise 💌</button>
+  </div>
+  <div id="msg" class="hidden">
+    <h1>💖</h1>
+    <h2>For Shaista</h2>
+    <div class="shayari">
+      Teri muskurahat se meri har shaam roshan ho jaati hai,<br>
+      Teri ek baat se meri duniya khush ho jaati hai.<br>
+      Naam tera Shaista hai, par mere liye ek ehsaas hai,<br>
+      Aur Alquama ke dil mein… bas tera hi khaas maqam hai. ❤️
+    </div>
+    <p>Jitni baar ye dil dhadkega,<br>utni baar tera khayal aayega. 🫶</p>
+    <p><b>— Alquama ❤️ Shaista</b></p>
+  </div>
+</div>
+<script>
+function heart(){
+ const h=document.createElement('div'); h.className='heart';
+ h.textContent=['❤️','💖','💕','✨','💗'][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+'vw'; h.style.animationDuration=(3+Math.random()*4)+'s';
+ document.body.appendChild(h); setTimeout(()=>h.remove(),7000);
+}
+setInterval(heart,280);
+function reveal(){
+ document.getElementById('main').classList.add('hidden');
+ document.getElementById('msg').classList.remove('hidden');
+ document.getElementById('msg').classList.add('reveal');
+ for(let i=0;i<25;i++) setTimeout(heart,i*50);
+}
+</script>
+</body>
+</html>
