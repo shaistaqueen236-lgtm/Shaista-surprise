@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Couple Funny Game 🐱❤️</title>
+<style>
+body{margin:0;font-family:Arial;background:linear-gradient(135deg,#ffe0ed,#fff6fb);text-align:center;color:#7d3157;min-height:100vh;overflow:hidden}.wrap{max-width:520px;margin:auto;padding:24px 16px}.cat{font-size:90px;animation:b 1s infinite}.card{background:#fff;border-radius:28px;padding:24px;box-shadow:0 10px 35px #d99ab8}.q{font-size:23px;font-weight:bold;min-height:80px}.answers button{display:block;width:100%;margin:10px 0;padding:14px;border:0;border-radius:18px;background:#ff77aa;color:white;font-size:17px;font-weight:bold}.heart{position:fixed;bottom:-40px;font-size:28px;animation:f 5s linear forwards;pointer-events:none}@keyframes f{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}@keyframes b{50%{transform:rotate(8deg) translateY(-8px)}}#score{font-weight:bold}
+</style></head><body><div class="wrap"><div class="cat" id="cat">🐱</div><h1>💗 Couple Fun Game 💗</h1><div class="card"><div id="q" class="q">Ready? 😼</div><div id="answers" class="answers"></div><div id="score">Score: 0</div></div></div>
+<script>
+const qs=[
+["Who is more likely to steal the blanket? 🛌",["Me 😂","You 😼","The cat 🐱"],0],
+["Who would say 'I'm not hungry' and then eat your food? 🍕",["Me 😇","You 😂","Nobody"],1],
+["Who is the bigger drama queen/king? 🎭",["Me 😎","You 👑","Both 😂"],2],
+["If the cat could talk, what would it say? 🐱",["Feed me!","I know your secrets 😳","Both"],0],
+["Who would survive longest without checking their phone? 📱",["Me 💪","You 😂","Neither"],2],
+["Pick the cutest team name: 🥰",["Cat Squad","Love Bugs","Chaos Couple"],1],
+["Who laughs at the worst jokes? 😂",["Me","You","We both do"],2],
+["Final question: Are we a cute team? ❤️",["Obviously 😎","YESSS ❤️","Ask the cat"],1]
+];
+let i=-1,score=0;
+function hearts(){let h=document.createElement("div");h.className="heart";h.textContent=["❤️","💗","💖","💕"][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+"vw";h.style.animationDuration=3+Math.random()*3+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),6500)}
+setInterval(hearts,350);
+function next(){i++;if(i>=qs.length){document.getElementById("q").textContent="🏆 Game Over! You scored "+score+" / "+qs.length+" ❤️";document.getElementById("answers").innerHTML='<button onclick="location.reload()">🔄 Play Again</button>';document.getElementById("cat").textContent="😻";return}let x=qs[i];document.getElementById("q").textContent=x[0];document.getElementById("answers").innerHTML=x[1].map((a,n)=>`<button onclick="pick(${n})">${a}</button>`).join("")}
+function pick(n){if(n===qs[i][2])score++;document.getElementById("score").textContent="Score: "+score;document.getElementById("cat").textContent=["😹","😼","😻"][Math.floor(Math.random()*3)];setTimeout(next,450)}
+next();
+</script></body></html>
