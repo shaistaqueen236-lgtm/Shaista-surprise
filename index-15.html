@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Naruto × Hinata — Evening</title>
+<style>
+*{box-sizing:border-box} body{margin:0;background:#080b18;color:#fff;font-family:system-ui,sans-serif;overflow:hidden}
+.scene{height:100vh;position:relative;background:linear-gradient(#111a3d 0%,#30265e 55%,#e58b78 100%)}
+.moon{position:absolute;width:110px;height:110px;border-radius:50%;background:#fff4d0;right:12%;top:10%;box-shadow:0 0 45px #fff4d0}
+.star{position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;opacity:.8;animation:twinkle 2s infinite alternate}
+.hill{position:absolute;bottom:-15vh;width:120%;height:35vh;background:#10152b;border-radius:50% 50% 0 0/100% 100% 0 0}
+.ground{position:absolute;bottom:0;width:100%;height:18vh;background:#0b1021}
+.char{position:absolute;bottom:16vh;width:120px;height:220px;animation:float 3s ease-in-out infinite}
+.naruto{left:28%}.hinata{right:28%}
+.head{position:absolute;left:25px;top:0;width:70px;height:72px;border-radius:48% 48% 45% 45%;background:#f2bd91;border:3px solid #141421}
+.hair.n{position:absolute;left:13px;top:-16px;width:94px;height:58px;background:#f2c21a;clip-path:polygon(0 70%,12% 15%,28% 48%,42% 0,56% 48%,74% 7%,86% 48%,100% 18%,91% 80%,55% 100%,20% 88%);z-index:2}
+.hair.h{position:absolute;left:12px;top:-12px;width:96px;height:82px;background:#171b30;border-radius:48% 48% 35% 35%;z-index:2}
+.body{position:absolute;left:20px;top:72px;width:80px;height:120px;border-radius:18px 18px 8px 8px;background:#f3f3f3;border:3px solid #141421}
+.naruto .body{background:#263f9e}.hinata .body{background:#8a79c9}
+.eye{position:absolute;top:32px;width:10px;height:7px;border-radius:50%;background:#151522;z-index:3}
+.eye.l{left:44px}.eye.r{left:78px}
+.smile{position:absolute;top:52px;left:52px;width:28px;height:12px;border-bottom:3px solid #b54f5b;border-radius:50%;z-index:3}
+.arm{position:absolute;top:95px;width:22px;height:80px;border-radius:15px;background:#f2bd91;border:3px solid #141421}
+.arm.l{left:4px;transform:rotate(20deg)}.arm.r{right:4px;transform:rotate(-20deg)}
+.hand{position:absolute;top:166px;width:18px;height:18px;border-radius:50%;background:#f2bd91;border:3px solid #141421}
+.naruto .hand.r{right:-4px}.hinata .hand.l{left:-4px}
+.caption{position:absolute;top:8%;left:50%;transform:translateX(-50%);text-align:center;width:90%;font-size:clamp(18px,3vw,30px);font-weight:700;text-shadow:0 3px 10px #000;opacity:0;animation:show 12s infinite}
+.sub{font-size:14px;font-weight:400;margin-top:8px}
+.spark{position:absolute;left:50%;bottom:31vh;width:12px;height:12px;border-radius:50%;background:#ffd86b;box-shadow:0 0 18px #ffd86b;animation:heart 2.2s infinite}
+@keyframes float{50%{transform:translateY(-8px)}} @keyframes twinkle{to{opacity:.2;transform:scale(.5)}}
+@keyframes heart{0%{transform:translate(-50%,20px) scale(.5);opacity:0}35%{opacity:1}100%{transform:translate(-50%,-100px) scale(1.3);opacity:0}}
+@keyframes show{0%,18%{opacity:0}25%,72%{opacity:1}80%,100%{opacity:0}}
+@media(max-width:650px){.naruto{left:15%}.hinata{right:15%}.char{transform:scale(.85);transform-origin:bottom}.caption{top:5%}}
+</style>
+</head>
+<body>
+<div class="scene" id="scene">
+  <div class="moon"></div>
+  <div class="hill"></div><div class="ground"></div>
+  <div class="caption">A quiet evening in Konoha<div class="sub">Naruto and Hinata share a peaceful moment under the moonlight.</div></div>
+  <div class="char naruto">
+    <div class="hair n"></div><div class="head"></div><div class="eye l"></div><div class="eye r"></div><div class="smile"></div>
+    <div class="body"></div><div class="arm l"></div><div class="arm r"></div><div class="hand r"></div>
+  </div>
+  <div class="char hinata">
+    <div class="hair h"></div><div class="head"></div><div class="eye l"></div><div class="eye r"></div><div class="smile"></div>
+    <div class="body"></div><div class="arm l"></div><div class="arm r"></div><div class="hand l"></div>
+  </div>
+  <div class="spark"></div>
+</div>
+<script>
+const scene=document.getElementById("scene");
+for(let i=0;i<70;i++){
+  const s=document.createElement("i");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*65+"%";
+  s.style.animationDelay=(Math.random()*2)+"s";
+  scene.appendChild(s);
+}
+</script>
+</body>
+</html>
